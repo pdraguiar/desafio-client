@@ -1,0 +1,42 @@
+<div class="container">
+        <div class="page-header">
+            <h2>Somatório de despesas / 2017</h2>
+        </div>
+        <br />
+        <form name="despesasCtrl.somatorioForm">
+            <div class="form-inline">
+                <div class="col-md-3">
+                    <label>Exibir somatório por: </label>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control" ng-model="despesasCtrl.filtroTipoSomatorio" ng-options='tipo.valor as tipo.nome for tipo in despesasCtrl.tipoSomatorios'>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <button class="btn btn-primary" ng-click="despesasCtrl.getSomatorio()">Buscar</button>
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <div class="table-responsive" ng-if="despesasCtrl.resultados.length > 0">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th ng-if="despesasCtrl.tipoSomatorio==1">Mês</th>
+                        <th ng-if="despesasCtrl.tipoSomatorio==2">Categoria Econômica</th>
+                        <th ng-if="despesasCtrl.tipoSomatorio==3">Fonte de Recurso</th>
+                        <th>Despesas Totais</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="despesa in despesasCtrl.resultados">
+                        <td ng-if="despesasCtrl.tipoSomatorio==1">{{despesa.nomeMes}}</td>
+                        <td ng-if="despesasCtrl.tipoSomatorio==2">{{despesa.nomeCategoriaEconomica}}</td>
+                        <td ng-if="despesasCtrl.tipoSomatorio==3">{{despesa.nomeFonteRecurso}}</td>
+                        <td>{{ despesa.valorDespesas | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>    

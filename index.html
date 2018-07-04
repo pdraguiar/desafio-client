@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="desafioapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio - Despesas Recife 2017</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.css" />
+    <link rel="stylesheet" href="modules/common/css/style.css" />
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-block-ui/dist/angular-block-ui.min.js"></script>
+    <script src="bower_components/ocLazyLoad/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-locale-pt-br/angular-locale_pt-br.js"></script>
+    <script src="desafioapp.module.js"></script>
+</head>
+<body>
+        <div class="wrapper">
+            <!-- Sidebar -->
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#" ui-sref="home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" ui-sref="despesassomatorio">Somatórios</a>
+                    </li>
+                    <li>
+                        <a href="#" ui-sref="despesascadastro">Cadastro</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Page Content -->
+            <div id="content">
+                <div ui-view></div>
+            </div>
+        </div>  
+</body>
+</html>
