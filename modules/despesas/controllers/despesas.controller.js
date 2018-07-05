@@ -100,8 +100,8 @@
             listarDespesas();
         }
 
-        function transitionTo() {
-            //TODO
+        function transitionTo(state) {
+            $state.transitionTo(state);
         }
     }
 })();

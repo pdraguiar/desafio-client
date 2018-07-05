@@ -45,9 +45,29 @@
                 }]
             }
         };
+
+        var cadastroDespesaFormState = {
+            url: "/despesas/cadastro/form",
+            templateUrl: "modules/despesas/templates/despesas.form.template.html",
+            controller: "DespesasFormController",
+            controllerAs: "despesasFormCtrl",
+            resolve: {
+                loadDeps: ["$ocLazyLoad", function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        serie: true,
+                        files: [
+                            "modules/common/constants.js",
+                            "modules/despesas/services/despesas.service.js",
+                            "modules/despesas/controllers/despesas.form.controller.js"
+                        ]
+                    })
+                }]
+            }
+        };
       
         $stateProvider.state("home", homeState);
         $stateProvider.state("despesassomatorio", somatoriosState);
         $stateProvider.state("despesascadastro", cadastroDespesaState);
+        $stateProvider.state("despesascadastroform", cadastroDespesaFormState);
       });
 })();
