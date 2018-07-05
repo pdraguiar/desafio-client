@@ -27,6 +27,12 @@ Aplicação que consome o serviço REST da aplicação "desafio".
 
 - Agora, basta iniciar o seu serviço do apache e acessar a aplicação, através da url: http://localhost/desafio-client (considerando a porta 80 como padrão do apache)
 
+# Principais Arquivos
+
+- São os localizados na pasta modules/despesas. Lá estão os controllers, services e templates utilizados nas principais telas do sistema.
+
+- Também o  desafioapp.module.js, onde estão as configurações de rota.
+
 
 
 License
