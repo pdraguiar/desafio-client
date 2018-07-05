@@ -21,6 +21,7 @@
         vm.getDespesasMensais = getDespesasMensais;
         vm.getDespesasPorCategoria = getDespesasPorCategoria;
         vm.getDespesasPorFonteRecurso = getDespesasPorFonteRecurso;
+        vm.listarDespesas = listarDespesas;
 
         function getDespesasMensais(){
             var url = _baseUrl + "/mensais";
@@ -38,6 +39,14 @@
             var url = _baseUrl + "/fonteRecurso";
 
             return $http.get(url, {headers: _headers});
+        }
+
+        function listarDespesas(pagina, porPagina) {
+            var _params = {
+                pagina: pagina,
+                porPagina: porPagina
+            };
+            return $http.get(_baseUrl, {headers: _headers, params: _params});
         }
     }
 })();

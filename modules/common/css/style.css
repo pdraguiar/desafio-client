@@ -167,3 +167,7 @@ a.article:hover {
         display: none;
     }
 }
+
+.no-margin {
+    margin: 0 !important; 
+}

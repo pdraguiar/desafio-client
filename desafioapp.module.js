@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     
-    angular.module("desafioapp",["ui.router", "oc.lazyLoad", "blockUI"])
+    angular.module("desafioapp",["ui.router", "oc.lazyLoad", "blockUI", "ui.bootstrap"])
     .config(function($stateProvider) {
         var homeState = {
             url: "/",

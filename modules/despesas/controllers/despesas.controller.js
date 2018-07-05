@@ -5,13 +5,20 @@
         .module('desafioapp')
         .controller('DespesasController', DespesasController);
 
-        DespesasController.$inject = ['Constants',"DespesaService"];
+        DespesasController.$inject = ['Constants',"DespesaService","$state"];
 
     
-    function DespesasController(Constants, DespesaService) {
+    function DespesasController(Constants, DespesaService, $state) {
         var vm = this;
 
         vm.getSomatorio = getSomatorio;
+        vm.transitionTo = transitionTo;
+        vm.registrosPorPaginaAlterados = registrosPorPaginaAlterados;
+        vm.atualizarBusca = atualizarBusca;
+        vm.pagina = 0;
+        vm.paginaAtual = 1;
+        vm.porPagina = 10;
+        vm.totalRegistros = 0;
 
         init();
 
@@ -24,6 +31,10 @@
             vm.filtroTipoSomatorio = Constants.TIPOS_SOMATORIO.MENSAL;
             vm.tipoSomatorio = 1; //utilizado para distinguir na tela, qual tipo de somatório utilizado
             vm.resultados = [];
+
+            if ($state && $state.$current && ($state.$current.name == "despesascadastro")) {
+                listarDespesas();
+            }
         }
 
         function getSomatorio() {
@@ -63,6 +74,34 @@
             });
 
             return array;
+        }
+
+        function listarDespesas() {
+            DespesaService.listarDespesas(vm.pagina, vm.porPagina).then(function(response) {
+                if (response && response.data && response.data.despesas) {
+                    vm.resultados = vm.resultados = atribuirNomeMes(response.data.despesas);
+                    vm.totalRegistros = response.headers("X-Total-Registros");
+                } else {
+                    vm.resultados = [];
+                    vm.totalRegistros = 0;
+                }
+            });
+        }
+
+        function registrosPorPaginaAlterados(novoPorPagina) {
+            vm.porPagina = novoPorPagina;
+
+            listarDespesas();
+        }
+
+        function atualizarBusca() {
+            vm.pagina = (vm.paginaAtual - 1);
+
+            listarDespesas();
+        }
+
+        function transitionTo() {
+            //TODO
         }
     }
 })();
