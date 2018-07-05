@@ -26,7 +26,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="despesa in despesasCtrl.resultados">
-                        <td><a href="#" class="btn-link">{{despesa.codigoDespesa}}</a></td>
+                        <td><a href="#" class="btn-link" ng-click="despesasCtrl.transitionTo('despesascadastroform', despesa)">{{despesa.codigoDespesa}}</a></td>
                         <td>{{despesa.ano}}</td>
                         <td>{{despesa.nomeMes}}</td>
                         <td>{{despesa.unidade.orgao.nome}}</td>

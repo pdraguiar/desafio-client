@@ -1,7 +1,7 @@
 (function() {
     'use strict';
     
-    angular.module("desafioapp",["ui.router", "oc.lazyLoad", "blockUI", "ui.bootstrap"])
+    angular.module("desafioapp",["ui.router", "oc.lazyLoad", "blockUI", "ui.bootstrap", "ui.utils.masks"])
     .config(function($stateProvider) {
         var homeState = {
             url: "/",
@@ -32,6 +32,9 @@
             templateUrl: "modules/despesas/templates/despesas.template.html",
             controller: "DespesasController",
             controllerAs: "despesasCtrl",
+            params: {
+                despesa: null
+            },
             resolve: {
                 loadDeps: ["$ocLazyLoad", function($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -51,6 +54,9 @@
             templateUrl: "modules/despesas/templates/despesas.form.template.html",
             controller: "DespesasFormController",
             controllerAs: "despesasFormCtrl",
+            params: {
+                despesa: null
+            },
             resolve: {
                 loadDeps: ["$ocLazyLoad", function($ocLazyLoad) {
                     return $ocLazyLoad.load({
@@ -58,6 +64,7 @@
                         files: [
                             "modules/common/constants.js",
                             "modules/despesas/services/despesas.service.js",
+                            "modules/common/services/dominios.service.js",
                             "modules/despesas/controllers/despesas.form.controller.js"
                         ]
                     })

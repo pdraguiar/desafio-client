@@ -9,19 +9,19 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>Mês</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses' required></select>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label>Órgão</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.orgao.codigoOrgao" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaOrgaos' ng-change="despesasFormCtrl.buscarUnidades()" required></select>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label>Unidade</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.unidade.codigoUnidade" ng-options='dominio.codigoDominioString as dominio.nomeDominio for dominio in despesasFormCtrl.listaUnidades' required></select>
                             </div>
                         </div>
                     </div>
@@ -29,19 +29,19 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Categoria Econômica</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.categoriaEconomica.codigoCategoriaEconomica" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaCategoriaEconomica' required></select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Grupo Despesa</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.grupoDespesa.codigoGrupoDespesa" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaGrupoDespesa' required></select>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Fonte de Recurso</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.fonteRecurso.codigoFonteRecurso" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaFonteRecurso' required></select>
                             </div>
                         </div>
                     </div>
@@ -49,25 +49,25 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Modalidade Aplicação</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.modalidadeAplicacao.codigoModalidadeAplicacao" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaModalidadeAplicacao' required></select>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>Modalidade Empenho</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.modalidadeEmpenho.codigoModalidadeEmpenho" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaModalidadeEmpenho' required></select>
                             </div>
                         </div>
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label>Modalidade Licitação</label>
-                                <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                <select class="form-control" ng-model="despesasFormCtrl.despesa.modalidadeLicitacao.codigoModalidadeLicitacao" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaModalidadeLicitacao' required></select>
                             </div>
                         </div>
                         <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Credor</label>
-                                    <select class="form-control" ng-model="despesasFormCtrl.despesa.mes" ng-options='opcao.mes as opcao.nome for opcao in despesasFormCtrl.listaMeses'></select>
+                                    <select class="form-control" ng-model="despesasFormCtrl.despesa.credor.codigoCredor" ng-options='dominio.codigoDominio as dominio.nomeDominio for dominio in despesasFormCtrl.listaCredor' required></select>
                                 </div>
                             </div>
                     </div>
@@ -75,19 +75,19 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Valor Empenhado</label>
-                                    <input type="text" class="form-control" maxlength="60" ng-model="despesasFormCtrl.valorEmpenhado" required>
+                                    <input type="text" class="form-control" ui-number-mask="2" maxlength="60" ng-model="despesasFormCtrl.despesa.valorEmpenhado" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Valor Liquidado</label>
-                                    <input type="text" class="form-control" maxlength="60" ng-model="despesasFormCtrl.valorEmpenhado" required>
+                                    <input type="text" class="form-control" ui-number-mask="2" maxlength="60" ng-model="despesasFormCtrl.despesa.valorLiquidado" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Valor Pago</label>
-                                    <input type="text" class="form-control" maxlength="60" ng-model="despesasFormCtrl.valorEmpenhado" required>
+                                    <input type="text" class="form-control" ui-number-mask="2" maxlength="60" ng-model="despesasFormCtrl.despesa.valorPago" required>
                                 </div>
                             </div>
                         </div>

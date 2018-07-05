@@ -22,6 +22,9 @@
         vm.getDespesasPorCategoria = getDespesasPorCategoria;
         vm.getDespesasPorFonteRecurso = getDespesasPorFonteRecurso;
         vm.listarDespesas = listarDespesas;
+        vm.criarDespesa = criarDespesa;
+        vm.buscarDespesa = buscarDespesa;
+        vm.atualizarDespesa = atualizarDespesa;
 
         function getDespesasMensais(){
             var url = _baseUrl + "/mensais";
@@ -47,6 +50,22 @@
                 porPagina: porPagina
             };
             return $http.get(_baseUrl, {headers: _headers, params: _params});
+        }
+
+        function criarDespesa(despesa) {
+            return $http.post(_baseUrl, despesa, {headers: _headers});
+        }
+
+        function buscarDespesa(codigoDespesa){
+            var url = _baseUrl + "/" + codigoDespesa;
+
+            return $http.get(url, {headers: _headers});
+        }
+
+        function atualizarDespesa(despesa) {
+            var url = _baseUrl + "/" + despesa.codigoDespesa;
+
+            return $http.put(url, despesa, {headers: _headers});
         }
     }
 })();

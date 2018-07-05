@@ -100,8 +100,12 @@
             listarDespesas();
         }
 
-        function transitionTo(state) {
-            $state.transitionTo(state);
+        function transitionTo(state, despesa) {
+            if (despesa && despesa.codigoDespesa) {
+                $state.transitionTo(state, {despesa: despesa.codigoDespesa});
+            } else {
+                $state.transitionTo(state);
+            }
         }
     }
 })();
